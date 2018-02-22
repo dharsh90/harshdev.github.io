@@ -2,6 +2,9 @@
 <!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 <head>
 
    <!--- Basic Page Needs
@@ -258,7 +261,7 @@
 
 
       <!-- Skills
-      ----------------------------------------------- -->
+      ----------------------------------------------- 
       <div class="row skill">
 
          <div class="three columns header-col">
@@ -281,6 +284,67 @@
                   <li><span class="bar-expand office"></span><em>Microsoft Office Suite</em></li>
 					</ul>
 
+
+-->
+
+<div id="container" style="min-width: 310px; max-width: 600px; height: 600px; margin: 0 auto"></div>
+<script type="text/javascript">
+
+
+
+  var z = 0;
+ var par = ["Programming","Data Analysis","Visualization","Distributed Systems","SQL"," Office Suite","Statistics","Probability"]
+Highcharts.chart('container', {
+
+    chart: {
+        polar: true
+    },
+
+    title: {
+        text: 'Skills Chart'
+    },
+
+    pane: {
+        startAngle: 1,
+        endAngle: 360
+       
+    },
+    
+    xAxis: {
+        tickInterval: 45,
+        min: 0,
+        max: 360,
+        labels: {
+            formatter: function () {
+                //return this.value + '°';
+                return par[z++];
+            }
+        }
+    },
+
+    yAxis: {
+        min: 0
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 0,
+            pointInterval: 45
+        },
+        column: {
+            pointPadding: 0,
+            groupPadding: 0
+        }
+    },
+
+    series: [ {
+        type: 'area',
+        name: 'Skill Level',
+        data: [8,7,8,8,7,9,6,6]
+    }]
+});
+
+</script>
 				</div><!-- end skill-bars -->
 
 			</div> <!-- main-col end -->
